@@ -23,13 +23,16 @@ export default function Home() {
   const handleSubmit = async () => {
     try {
       const parsedJson = JSON.parse(jsonInput);
-      const res = await fetch("http://localhost:3000/bfhl", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(parsedJson),
-      });
+      const res = await fetch(
+        "https://bajab-challenge-server.onrender.com/bfhl",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(parsedJson),
+        }
+      );
       const data = await res.json(); // Corrected to parse the JSON response
       setResponse(data);
     } catch (error) {
